@@ -1,7 +1,7 @@
-apiKey = 'AIzaSyDdKdMYOUt2iheeCSndjHkZUqGvJmpk_xo'
+const apiKey = 'AIzaSyBpoAZv5Xd9c6Ua544dgXWWY1UAlmj2RLA'
 
-wikipediaURL = 'https://en.wikipedia.org/w/api.php?format=json&action=opensearch&origin=*&search='
+const wikipediaURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles='
 
-youtubeURL = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key='+ apiKey +'&q='
+const youtubeURL = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key='+ apiKey +'&q='
 
-maxResults = '&maxResults=4'
+const maxResults = '&maxResults=4'
