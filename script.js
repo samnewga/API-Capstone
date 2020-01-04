@@ -2,6 +2,7 @@ window.onload = function(){
   $('#search').click(showResults)
 }
 
+
 function showResults(){
   let searchTerm = document.querySelector('input[name="searchTerm"]').value
 
