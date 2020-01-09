@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -8,25 +9,33 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js">
     </script>
   </head>
+
   <body>
 
 
-  <div class="container">
-  	<h1>Youtube & Wikipedia </h1>
-		<div class="search-box">
-			<input type="text" class="search-box-input" placeholder="Search for something.">
-			<button class="search-box-btn">
-				<i class="search-box-icon material-icons">Go!</i>
-			</button>
-		</div>
-  </div>
+    <div class="container">
+      <h1>Youtube & Wikipedia </h1>
+      <form class="search-form">
 
+        <div class="search-box">
+          <input type="text" class="search-box-input" placeholder="Enter something to search">
+          
+          <button class="search-box-btn">
+          <i class="search-box-icon material-icons">Search</i>
+          </button>
+      </div>
 
+      </form>
+    </div>
 
-    <div id="outputWiki"></div>
-    <div id="outputYoutube"></div>
+    <div class="dataContainer">
+      <div id="outputWiki"></div>
+      <div id="outputYoutube"></div>
+    </div>
+
     <script src="source.js"></script>
     <script src="script.js"></script>
     <script src="animation.js"></script>
+
   </body>
 </html>
