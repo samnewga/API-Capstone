@@ -1,6 +1,6 @@
 Name: API Capstone
 
-Live Link: https://samnewga.github.io/API-Capstone/
+Live Link: https://samnewga.github.io/Youtube-and-Wikipedia-API-Search/
 
 Screenshots: https://imgur.com/a/FPoZAL0
 
