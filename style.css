@@ -121,7 +121,7 @@ button{
 @media screen and (min-width : 1025px){
 
   .dataContainer{
-    margin-top:20% !important;
+    margin-top:30% !important;
   }
   
   .search-box-input{
@@ -168,7 +168,7 @@ button{
   }
 
   .dataContainer{
-    margin-top:65%;
+    margin-top:70%;
   }
 
   .search-box-input{
