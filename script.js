@@ -10,15 +10,18 @@ function showResults(e) {
   // Gets the value of searchTerm
   let searchTerm = document.querySelector('input[class="search-box-input"]').value
   
+   // Get the first element of the document with the id of outputWiki
+  let outputWiki = document.querySelector('#outputWiki');
+  
+  // Get the first element of the document with the id of outputYoutube
+  let outputYoutube = document.querySelector('#outputYoutube');
+  
+  // Runs the capitalization function on the search term
+  let fixedTerm = capitalization(searchTerm);
+  
   // Puts together the wikipedia endpoint with the search term
   let url1 = wikipediaURL + searchTerm;
 
-  // Get the first element of the document with the id of outputWiki
-  let outputWiki = document.querySelector('#outputWiki');
-
-   // Get the first element of the document with the id of outputYoutube
-  let outputYoutube = document.querySelector('#outputYoutube');
-  
   // Changes the HTML content of outputWiki with a string and search term
   outputWiki.innerHTML = `<h2 class="dataOutput">Search Term "${searchTerm}"</h2>`;
 
@@ -26,15 +29,22 @@ function showResults(e) {
   outputYoutube.innerHTML = `<h2 class="dataOutput">Videos of "${searchTerm}"</h2>`;
 
   // Fetches a JSON response from the Wikipedia API
-  fetch(url1)
+ fetch(url1)
   .then(response=>response.json())
   .then(response=>{
     const pages = response["query"]["pages"];
     const result = Object.values(pages)[0];
 
+    if(result.extract === undefined){
+      console.log(result);
+      outputWiki.innerHTML += '<div class="dataOutput"> Invalid search term or no Wikipedia page found.</div>';  
+    }
+
+    else{
     console.log(result);
     outputWiki.innerHTML += '<div class="dataOutput">' + result.extract + '</div>';
-  })
+    }
+  });
 
   // Combines the youtube end point url with the search term and the set maximum results
   let url2 = youtubeURL + searchTerm + maxResults;
@@ -66,5 +76,28 @@ function shortenTitle(title) {
   let newTitle = title.substring(0,35)
 
   return `${newTitle}...`;
+  }
 
-}
+// Capitalizes the search term for a better wikipedia search result
+function capitalization(searchTerm){
+  searchTerm = searchTerm.toLowerCase();
+  const tokens = searchTerm.split(" ");
+  const result = [];
+
+  for (let i = 0; i < tokens.length; i++){
+    let currentToken = tokens[i];
+    let capitalized = capitalizeWord(currentToken);
+    result.push(capitalized);
+  
+  }
+  
+  return result.join(" ");
+};
+
+// Capitalizes the tokens which are the words within the search term string
+function capitalizeWord(token){
+  const initial = token.charAt(0).toUpperCase();
+  const remainder = token.substr(1, token.length);
+
+  return `${initial}${remainder}`;
+};
