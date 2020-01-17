@@ -36,12 +36,10 @@ function showResults(e) {
     const result = Object.values(pages)[0];
 
     if(result.extract === undefined){
-      console.log(result);
       outputWiki.innerHTML += '<div class="dataOutput"> Invalid search term or no Wikipedia page found.</div>';  
     }
 
     else{
-    console.log(result);
     outputWiki.innerHTML += '<div class="dataOutput">' + result.extract + '</div>';
     }
   });
@@ -54,12 +52,9 @@ function showResults(e) {
   .then(response=>response.json())
   .then(response=>{
     for(let x in response.items){
-      console.log(response.items[x])
       let title = response.items[x].snippet.title;
-      console.log(response.items[x].snippet);
       let thumb = response.items[x].snippet.thumbnails.high.url;
 
-      console.log(thumb);
       
       const newTitle = shortenTitle(title);
 
